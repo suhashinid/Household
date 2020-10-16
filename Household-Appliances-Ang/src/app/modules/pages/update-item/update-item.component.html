@@ -1,0 +1,45 @@
+<div class="col-md-6 item-container">
+    <h2 class="text-center">Update Item</h2>
+    <form id ="addForm" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="serialNumber">Serial Number:</label>
+        <input type="text" formControlName="serialNumber" placeholder="Serial Number" name="serialNumber" [(ngModel)]="item.serialNumber"  class="form-control" id="serialNumber" [ngClass]="{ 'is-invalid': submitted && f.serialNumber.errors }" />
+        <div *ngIf="submitted && f.serialNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.serialNumber.errors.required">Serial Number is required</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="brand">Brand:</label>
+        <input type="brand" formControlName="brand" placeholder="Brand" name="brand" class="form-control" id="brand" [(ngModel)]="item.brand" [ngClass]="{ 'is-invalid': submitted && f.brand.errors }" />
+        <div *ngIf="submitted && f.brand.errors" class="invalid-feedback">
+            <div *ngIf="f.brand.errors.required">Brand is required</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="model">Model:</label>
+        <input formControlName="model" placeholder="Model" name="model" class="form-control" id="model" [(ngModel)]="item.model" [ngClass]="{ 'is-invalid': submitted && f.model.errors }" />
+        <div *ngIf="submitted && f.model.errors" class="invalid-feedback">
+            <div *ngIf="f.brand.errors.required">Model is required</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="status">Status:</label>
+        <input formControlName="status" placeholder="Status" name="status" class="form-control" id="status" [(ngModel)]="item.status">
+      </div>
+  
+      <div class="form-group">
+        <label for="dateBought">Date Bought:</label>
+        <input type="dateBought" formControlName="dateBought" placeholder="dateBought" name="dateBought" class="form-control" [(ngModel)]="item.dateBought" id="dateBought"[ngClass]="{ 'is-invalid': submitted && f.dateBought.errors }" />
+        <div *ngIf="submitted && f.dateBought.errors" class="invalid-feedback">
+            <div *ngIf="f.dateBought.errors.required">Date Bought is required</div>
+        </div>
+      </div>
+  
+
+  
+      <button class="btn btn-success">Create</button>
+    </form>
+  </div>
